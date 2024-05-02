@@ -1,0 +1,10 @@
+.main {
+	background-color: aliceblue;
+}
+
+.column {
+	min-width: 17rem;
+	width: 100%;
+	white-space: nowrap;
+	min-height: 79vh;
+}

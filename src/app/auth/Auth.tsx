@@ -2,7 +2,7 @@
 
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -14,6 +14,7 @@ import { IAuthForm } from '@/types/auth.types'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
+import styles from './auth.module.css'
 import { authService } from '@/services/auth.service'
 
 export function Auth() {
@@ -21,14 +22,13 @@ export function Auth() {
 		mode: 'onChange'
 	})
 
-	const [isLoginForm, setIsLoginForm] = useState(false)
+	const [formType, setFormType] = useState<'login' | 'register'>('login')
 
 	const { push } = useRouter()
 
 	const { mutate } = useMutation({
 		mutationKey: ['auth'],
-		mutationFn: (data: IAuthForm) =>
-			authService.main(isLoginForm ? 'login' : 'register', data),
+		mutationFn: (data: IAuthForm) => authService.main(formType, data),
 		onSuccess() {
 			toast.success('Successfully login!')
 			reset()
@@ -37,16 +37,17 @@ export function Auth() {
 	})
 
 	const onSubmit: SubmitHandler<IAuthForm> = data => {
+		console.log('123')
 		mutate(data)
 	}
 
 	return (
-		<div className='flex min-h-screen'>
+		<div className={styles.container}>
 			<form
-				className='w-1/4 m-auto shadow bg-sidebar rounded-xl p-layout'
+				className={styles.form}
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<Heading title='Auth' />
+				<Heading title='Авторизуйтесь' />
 				<Field
 					id='email'
 					label='Email:'
@@ -65,9 +66,17 @@ export function Auth() {
 					{...register('password', { required: 'Password is required' })}
 				/>
 
-				<div className='flex items-center gap-5 justify-center'>
-					<Button onClick={() => setIsLoginForm(true)}>Войти</Button>
-					<Button onClick={() => setIsLoginForm(false)}>
+				<div className={styles.buttons}>
+					<Button
+						type='submit'
+						onClick={() => setFormType('login')}
+					>
+						Войти
+					</Button>
+					<Button
+						type='submit'
+						onClick={() => setFormType('register')}
+					>
 						Зарегистрироваться
 					</Button>
 				</div>

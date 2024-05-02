@@ -1,22 +1,22 @@
-import cn from 'clsx'
+import { Button as MuiButton } from '@mui/material'
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
 
 type TypeButton = ButtonHTMLAttributes<HTMLButtonElement>
 
 export function Button({
 	children,
-	className,
-	...rest
+	onClick,
+	type,
+	disabled
 }: PropsWithChildren<TypeButton>) {
 	return (
-		<button
-			className={cn(
-				'linear rounded-lg bg-transparent border border-primary py-2 px-7 text-base font-medium text-white transition hover:bg-primary active:bg-brand-700',
-				className
-			)}
-			{...rest}
+		<MuiButton
+			type={type}
+			variant='contained'
+			onClick={onClick}
+			disabled={disabled}
 		>
 			{children}
-		</button>
+		</MuiButton>
 	)
 }

@@ -4,10 +4,10 @@ import { axiosAuth } from '@/api/interceptors'
 
 export interface IProfileResponse {
 	user: IUser
-	statistics: {
+	statistics: Array<{
 		label: string
 		value: string
-	}[]
+	}>
 }
 
 class UserService {

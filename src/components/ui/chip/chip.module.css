@@ -1,0 +1,27 @@
+.chip {
+	padding: 4px 8px;
+	border-radius: 5px;
+	width: max-content;
+	font-weight: 600;
+	color: #ffffff;
+	transition-property: background-color, border-color, color, fill, stroke,
+		opacity, box-shadow, transform;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
+}
+
+.gray {
+	background-color: gray;
+}
+
+.high {
+	background-color: rgb(255, 68, 68);
+}
+
+.medium {
+	background-color: rgb(255, 201, 101);
+}
+
+.low {
+	background-color: rgb(83, 103, 255);
+}
