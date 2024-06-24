@@ -8,7 +8,6 @@ import 'react-day-picker/dist/style.css'
 
 import { useOutside } from '@/hooks/useOutside'
 
-import { formatCaption } from './DatePickerCaption'
 import styles from './date-picker.module.css'
 
 dayjs.extend(LocalizedFormat)
@@ -49,7 +48,7 @@ export function DatePicker({
 			</button>
 			{value && (
 				<button
-					className='absolute -top-2 -right-4 opacity-30 hover:opacity-100 transition-opacity'
+					className={styles.button}
 					onClick={() => onChange('')}
 				>
 					<X size={14} />
@@ -59,7 +58,7 @@ export function DatePicker({
 				<div
 					className={cn(
 						styles.picker,
-						position === 'left' ? '-left-4' : ' -right-4'
+						position === 'left' ? styles.left : styles.right
 					)}
 					style={{
 						top: 'calc(100% + .7rem)'
@@ -74,7 +73,6 @@ export function DatePicker({
 						selected={selected}
 						onSelect={handleDaySelect}
 						weekStartsOn={1}
-						formatters={{ formatCaption }}
 					/>
 				</div>
 			)}

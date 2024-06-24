@@ -1,0 +1,26 @@
+.aside {
+	display: flex;
+	flex-direction: column;
+	border-right: 1px solid rgba(255, 255, 255, 0.12);
+	height: 100%;
+}
+
+.link {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+	padding: 20px;
+}
+
+.title {
+	position: relative;
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 700;
+}
+
+.menu {
+	position: relative;
+	padding: 12px;
+}

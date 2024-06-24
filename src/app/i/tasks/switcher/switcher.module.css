@@ -1,0 +1,17 @@
+.switcher {
+	display: flex;
+	margin-bottom: 20px;
+	gap: 16px;
+	align-items: center;
+}
+
+.button {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+	opacity: 0.4;
+}
+
+.active {
+	opacity: 1;
+}

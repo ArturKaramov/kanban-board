@@ -48,3 +48,12 @@
 .grip:hover {
 	opacity: 1;
 }
+
+.button {
+	opacity: 0.5;
+	transition: opacity 500ms;
+}
+
+.button:hover {
+	opacity: 1;
+}

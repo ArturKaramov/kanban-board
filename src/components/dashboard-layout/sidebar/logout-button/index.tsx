@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query'
 import { LogOut } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
+import styles from './logout-button.module.css'
 import { authService } from '@/services/auth.service'
 
 export function LogoutButton() {
@@ -15,9 +16,9 @@ export function LogoutButton() {
 	})
 
 	return (
-		<div className='absolute top-1 right-1'>
+		<div className={styles.main}>
 			<button
-				className='opacity-20 hover:opacity-100 transition-opacity duration-300'
+				className={styles.button}
 				onClick={() => mutate()}
 			>
 				<LogOut size={20} />

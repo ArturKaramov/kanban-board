@@ -7,8 +7,8 @@ import { useTasks } from '@/hooks/useTasks'
 
 import { COLUMNS } from '../columns.data'
 
-import { ListRowParent } from './ListRowParent'
-import styles from './list-row.module.scss'
+import { ListRowParent } from './list-row-parent/ListRowParent'
+import styles from './list-view.module.css'
 
 export const ListView = () => {
 	const { items, setItems } = useTasks()
@@ -26,7 +26,7 @@ export const ListView = () => {
 				</div>
 			</div>
 
-			<div className={styles.parentsWrapper}>
+			<div>
 				{COLUMNS.map(column => (
 					<ListRowParent
 						items={items}

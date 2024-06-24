@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { ITimerRoundResponse } from '@/types/timer.types'
 
-import styles from './TimerRounds.module.scss'
+import styles from './TimerRounds.module.css'
 
 interface ITimerRounds {
 	rounds: ITimerRoundResponse[] | undefined

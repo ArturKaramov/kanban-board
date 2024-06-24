@@ -41,7 +41,7 @@ export const ListRow = ({ item, setItems }: IListRow) => {
 			)}
 		>
 			<div>
-				<span className='inline-flex items-center gap-2.5 w-full'>
+				<span className={styles.rowInfo}>
 					<button aria-describedby='todo-item'>
 						<GripVertical className={styles.grip} />
 					</button>
@@ -92,7 +92,7 @@ export const ListRow = ({ item, setItems }: IListRow) => {
 					onClick={() =>
 						item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
 					}
-					className='opacity-50 transition-opacity hover: opacity-100'
+					className={styles.delete}
 				>
 					{isDeletePending ? <Loader size={15} /> : <Trash size={15} />}
 				</button>

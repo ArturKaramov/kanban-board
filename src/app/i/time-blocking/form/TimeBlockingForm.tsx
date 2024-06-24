@@ -7,6 +7,7 @@ import { SingleSelect } from '@/components/ui/task-edit/single-select'
 import type { TTimeBlockFormState } from '@/types/time-block.types'
 
 import { COLORS } from './colors.data'
+import styles from './time-blocking-form.module.css'
 import { useCreateTimeBlock } from './useCreateTimeBlock'
 import { useUpdateTimeBlock } from './useUpdateTimBlock'
 
@@ -44,7 +45,7 @@ export function TimeBlockingForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='w-3/5'
+			className={styles.form}
 		>
 			<Field
 				{...register('name', {
@@ -53,7 +54,7 @@ export function TimeBlockingForm() {
 				id='name'
 				label='Enter name:'
 				placeholder='Enter name:'
-				//extra='mb-4'
+				extra={styles.input}
 			/>
 
 			<Field
@@ -65,11 +66,11 @@ export function TimeBlockingForm() {
 				label='Enter duration (min.):'
 				placeholder='Enter duration (min.):'
 				isNumber
-				extra='mb-4'
+				extra={styles.input}
 			/>
 
 			<div>
-				<span className='inline-block mb-1.5'>Color:</span>
+				<span className={styles.color}>Color:</span>
 				<Controller
 					control={control}
 					name='color'
@@ -91,7 +92,7 @@ export function TimeBlockingForm() {
 				variant='contained'
 				type='submit'
 				disabled={isPending}
-				className='mt-6'
+				className={styles.submit}
 			>
 				{existsId ? 'Update' : 'Create'}
 			</Button>

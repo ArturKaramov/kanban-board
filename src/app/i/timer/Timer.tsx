@@ -4,13 +4,15 @@ import { Loader, Pause, Play, RefreshCcw } from 'lucide-react'
 
 import { Button } from '@/components/ui/buttons/Button'
 
+import { useCreateSession } from '@/hooks/timer/useCreateSession'
+import { useDeleteSession } from '@/hooks/timer/useDeleteSession'
+import { useTimer } from '@/hooks/timer/useTimer'
+import { useTimerActions } from '@/hooks/timer/useTimerActions'
+import { useTodaySession } from '@/hooks/timer/useTodaySession'
+
 import { formatTime } from './format-time'
-import { useCreateSession } from './hooks/useCreateSession'
-import { useDeleteSession } from './hooks/useDeleteSession'
-import { useTimer } from './hooks/useTimer'
-import { useTimerActions } from './hooks/useTimerActions'
-import { useTodaySession } from './hooks/useTodaySession'
 import { TimerRounds } from './rounds/TimerRounds'
+import styles from './timer.module.css'
 
 export function Timer() {
 	const timerState = useTimer()
@@ -26,11 +28,11 @@ export function Timer() {
 	)
 
 	return (
-		<div className='relative w-80 text-center'>
+		<div className={styles.main}>
 			{!isLoading && (
-				<div className='text-7xl font-semibold'>
+				<span className={styles.text}>
 					{formatTime(timerState.secondsLeft)}
-				</div>
+				</span>
 			)}
 			{isLoading ? (
 				<Loader />
@@ -43,7 +45,7 @@ export function Timer() {
 						activeRound={timerState.activeRound}
 					/>
 					<button
-						className='mt-6 opacity-80 hover:opacity-100 transition-opacity'
+						className={styles.playButton}
 						onClick={
 							timerState.isRunning ? actions.pauseHandler : actions.playHandler
 						}
@@ -56,7 +58,7 @@ export function Timer() {
 							timerState.setIsRunning(false)
 							deleteSession(sessionsResponse.data.id)
 						}}
-						className='absolute top-0 right-0 opacity-40 hover:opacity-90 transition-opacity'
+						className={styles.refresh}
 						disabled={isDeletePending}
 					>
 						<RefreshCcw size={19} />
@@ -65,7 +67,7 @@ export function Timer() {
 			) : (
 				<Button
 					onClick={() => mutate()}
-					className='mt-10'
+					className={styles.createButton}
 					disabled={isPending}
 				>
 					Create session

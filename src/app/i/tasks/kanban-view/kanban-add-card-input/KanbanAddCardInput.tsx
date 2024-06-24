@@ -1,16 +1,19 @@
 import { type Dispatch, type SetStateAction } from 'react'
 
-import { ITaskResponse } from '@/types/task.types'
+import type { ITaskResponse } from '@/types/task.types'
 
-import styles from './list-row.module.scss'
+import styles from './kanban-add-card-input.module.css'
 
-interface IListAddRowInput {
+interface IKanbanAddCardInput {
 	filterDate?: string
 	setItems: Dispatch<SetStateAction<ITaskResponse[] | undefined>>
 }
 
-export function ListAddRowInput({ setItems, filterDate }: IListAddRowInput) {
-	const addRow = () => {
+export function KanbanAddCardInput({
+	setItems,
+	filterDate
+}: IKanbanAddCardInput) {
+	const addCard = () => {
 		setItems(prev => {
 			if (!prev) return
 
@@ -27,10 +30,10 @@ export function ListAddRowInput({ setItems, filterDate }: IListAddRowInput) {
 	}
 
 	return (
-		<div className={styles.addRow}>
+		<div className={styles.main}>
 			<button
-				onClick={addRow}
-				className='italic opacity-40 text-sm'
+				onClick={addCard}
+				className={styles.button}
 			>
 				Add task...
 			</button>

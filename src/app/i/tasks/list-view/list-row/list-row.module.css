@@ -8,6 +8,13 @@
 	font-weight: 400;
 }
 
+.rowInfo {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	gap: 10px;
+}
+
 .completed {
 	font-style: italic;
 	text-decoration: line-through;
@@ -19,5 +26,14 @@
 }
 
 .grip:hover {
+	opacity: 1;
+}
+
+.delete {
+	opacity: 0.5;
+	transition: opacity 500ms;
+}
+
+.delete:hover {
 	opacity: 1;
 }

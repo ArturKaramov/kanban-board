@@ -5,22 +5,23 @@ import { COLORS } from '@/constants/color.constants'
 
 import { LogoutButton } from './logout-button'
 import { MENU, MenuItem } from './menu'
+import styles from './sidebar.module.css'
 
 export function Sidebar() {
 	return (
-		<aside className='border-r border-r-border h-full bg-sidebar flex flex-col justify-between'>
+		<aside className={styles.aside}>
 			<Link
-				href='/'
-				className='flex items-center gap-2.5 p-layout border-b border-b-border'
+				href='/auth'
+				className={styles.link}
 				draggable={false}
 			>
 				<GanttChartSquare
 					color={COLORS.primary}
 					size={38}
 				/>
-				<span className='text-2xl font-bold relative'>Kanban</span>
+				<span className={styles.title}>Kanban</span>
 			</Link>
-			<div className='p-3 relative'>
+			<div className={styles.menu}>
 				<LogoutButton />
 				{MENU.map(item => (
 					<MenuItem

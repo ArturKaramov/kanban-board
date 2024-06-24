@@ -7,8 +7,8 @@ import { useTasks } from '@/hooks/useTasks'
 
 import { COLUMNS } from '../columns.data'
 
-import styles from './KanbanView.module.scss'
 import { KanbanColumn } from './kanban-column'
+import styles from './kanban-view.module.css'
 
 export function KanbanView() {
 	const { items, setItems } = useTasks()

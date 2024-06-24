@@ -43,7 +43,7 @@ export function Settings() {
 							{...register('email', {
 								required: 'Email is required!'
 							})}
-							extra='mb-4'
+							extra={styles.margin}
 						/>
 
 						<Field
@@ -52,7 +52,7 @@ export function Settings() {
 							label='Имя:'
 							placeholder='Введите имя:'
 							{...register('name')}
-							extra='mb-4'
+							extra={styles.margin}
 						/>
 
 						<Field
@@ -61,7 +61,7 @@ export function Settings() {
 							placeholder='Введите пароль:'
 							type='password'
 							{...register('password')}
-							extra='mb-10'
+							extra={styles.margin}
 						/>
 					</div>
 
@@ -75,7 +75,7 @@ export function Settings() {
 							{...register('workInterval', {
 								valueAsNumber: true
 							})}
-							extra='mb-4'
+							extra={styles.margin}
 						/>
 
 						<Field
@@ -87,7 +87,7 @@ export function Settings() {
 							{...register('breakInterval', {
 								valueAsNumber: true
 							})}
-							extra='mb-4'
+							extra={styles.margin}
 						/>
 
 						<Field
@@ -99,7 +99,7 @@ export function Settings() {
 							{...register('intervalsCount', {
 								valueAsNumber: true
 							})}
-							extra='mb-6'
+							extra={styles.margin}
 						/>
 					</div>
 				</div>

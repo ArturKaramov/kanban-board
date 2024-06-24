@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	text-decoration: none;
+}
 
 body {
 	font-size: 1rem;
@@ -44,30 +49,4 @@ input:checked.defaultCheckbox::before {
 
 .slide {
 	animation: slide_anim 0.5s;
-}
-
-@keyframes slide_anim {
-	from {
-		transform: translateX(50px);
-		opacity: 0.4;
-	}
-
-	to {
-		transform: translateX(0);
-		opacity: 1;
-	}
-}
-
-.animation-opacity {
-	animation: opacity_anim 0.5s;
-}
-
-@keyframes opacity_anim {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
 }

@@ -1,0 +1,6 @@
+.board {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 20px;
+	overflow-x: auto;
+}

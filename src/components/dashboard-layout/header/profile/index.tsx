@@ -4,21 +4,23 @@ import Loader from '@/components/ui/loader'
 
 import { useProfile } from '@/hooks/useProfile'
 
+import styles from './profile.module.css'
+
 export function Profile() {
 	const { data, isLoading } = useProfile()
 
 	return (
-		<div className='absolute top-big-layout right-big-layout'>
+		<div className={styles.main}>
 			{isLoading ? (
 				<Loader />
 			) : (
-				<div className='flex items-center'>
-					<div className='text-right mr-3'>
-						<p className='font-bold -mb-1'>{data?.user.name}</p>
-						<p className='text-sm opacity-40'>{data?.user.email}</p>
+				<div className={styles.content}>
+					<div className={styles.data}>
+						<p className={styles.name}>{data?.user.name}</p>
+						<p className={styles.email}>{data?.user.email}</p>
 					</div>
 
-					<div className='w-10 h-10 flex justify-center items-center text-2xl text-white bg-white/20 rounded uppercase'>
+					<div className={styles.letter}>
 						{data?.user.name?.charAt(0) || 'A'}
 					</div>
 				</div>

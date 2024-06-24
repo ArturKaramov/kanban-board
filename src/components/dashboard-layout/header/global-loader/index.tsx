@@ -4,12 +4,14 @@ import { useIsFetching, useIsMutating } from '@tanstack/react-query'
 
 import Loader from '@/components/ui/loader'
 
+import styles from './global-loader.module.css'
+
 export function GlobalLoader() {
 	const isMutating = useIsMutating()
 	const isFetching = useIsFetching()
 
 	return isFetching || isMutating ? (
-		<div className='fixed top-layout right-layout z-50'>
+		<div className={styles.main}>
 			<Loader />
 		</div>
 	) : null

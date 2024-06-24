@@ -1,0 +1,14 @@
+.menu {
+	display: flex;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-top: 8px;
+	gap: 6px;
+	align-items: center;
+	border-radius: 8px;
+	padding-left: 8px;
+}
+
+.menu:hover {
+	background-color: grey;
+}

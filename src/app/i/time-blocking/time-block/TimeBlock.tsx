@@ -6,9 +6,10 @@ import type {
 	TTimeBlockFormState
 } from '@/types/time-block.types'
 
-import styles from './TimeBlocking.module.scss'
-import { useDeleteTimeBlock } from './hooks/useDeleteTimeBlock'
-import { useTimeBlockSortable } from './hooks/useTimeBlockSortable'
+import { useDeleteTimeBlock } from '../hooks/useDeleteTimeBlock'
+import { useTimeBlockSortable } from '../hooks/useTimeBlockSortable'
+
+import styles from './time-block.module.css'
 
 export function TimeBlock({ item }: { item: ITimeBlockResponse }) {
 	const { attributes, listeners, setNodeRef, style } = useTimeBlockSortable(
@@ -29,7 +30,7 @@ export function TimeBlock({ item }: { item: ITimeBlockResponse }) {
 					height: `${item.duration}px`
 				}}
 			>
-				<div className='flex items-center'>
+				<div className={styles.item}>
 					<button
 						{...attributes}
 						{...listeners}
@@ -38,8 +39,8 @@ export function TimeBlock({ item }: { item: ITimeBlockResponse }) {
 						<GripVertical className={styles.grip} />
 					</button>
 					<div>
-						{item.name}{' '}
-						<i className='text-xs opacity-50'>({item.duration} min.)</i>
+						{item.name + ' '}
+						<i className={styles.duration}>({item.duration} min.)</i>
 					</div>
 				</div>
 
@@ -54,13 +55,13 @@ export function TimeBlock({ item }: { item: ITimeBlockResponse }) {
 								order: item.order
 							})
 						}}
-						className='opacity-50 transition-opacity hover:opacity-100 mr-2'
+						className={`${styles.button} ${styles.reset}`}
 					>
 						<Edit size={16} />
 					</button>
 					<button
 						onClick={() => deleteTimeBlock()}
-						className='opacity-50 transition-opacity hover:opacity-100'
+						className={styles.button}
 					>
 						{isDeletePending ? <Loader size={16} /> : <Trash size={16} />}
 					</button>

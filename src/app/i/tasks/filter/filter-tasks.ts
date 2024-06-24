@@ -2,9 +2,9 @@ import dayjs from 'dayjs'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 
-import type { ITaskResponse } from '../../../types/task.types'
+import { ITaskResponse } from '@/types/task.types'
 
-import { FILTERS } from './columns.data'
+import { FILTERS } from '../utils'
 
 dayjs.extend(isSameOrAfter)
 dayjs.extend(isSameOrBefore)

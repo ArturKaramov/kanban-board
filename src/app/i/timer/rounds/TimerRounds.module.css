@@ -1,0 +1,57 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.roundsContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.button {
+	opacity: 0.2;
+	transition: opacity 500ms;
+}
+
+.button:hover {
+	opacity: 1;
+}
+
+.button:disabled {
+	opacity: 0.2;
+}
+
+.round {
+	border-radius: 4px;
+	border: 1px solid white;
+	width: 20px;
+	height: 20px;
+	position: relative;
+}
+.round::before {
+	border-radius: 4px;
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
+	transition-duration: 300ms;
+	background-color: green;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0%;
+	height: 100%;
+}
+
+.active::before {
+	width: 20%;
+}
+
+.completed::before {
+	border-radius: 4px;
+	width: 100%;
+}

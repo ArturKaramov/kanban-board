@@ -3,11 +3,11 @@ import type { Dispatch, SetStateAction } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
-import { FILTERS } from '../columns.data'
-import { filterTasks } from '../filter-tasks'
+import { FILTERS } from '../../columns.data'
+import { filterTasks } from '../../filter/filter-tasks'
+import { ListRow } from '../list-row'
+import { ListAddRowInput } from '../list-row-input/ListAddRowInput'
 
-import { ListAddRowInput } from './ListAddRowInput'
-import { ListRow } from './list-row'
 import styles from './list-row-parent.module.css'
 
 interface IListRowParent {
@@ -31,7 +31,7 @@ export function ListRowParent({
 					ref={provided.innerRef}
 					{...provided.droppableProps}
 				>
-					<div className='w-full'>{label}</div>
+					<div>{label}</div>
 
 					{filterTasks(items, value)?.map((item, index) => (
 						<Draggable

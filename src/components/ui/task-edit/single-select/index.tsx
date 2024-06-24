@@ -1,4 +1,3 @@
-import cn from 'clsx'
 import { X } from 'lucide-react'
 
 import { Chip } from '@/components/ui/chip'
@@ -29,9 +28,7 @@ export function SingleSelect({
 	const getValue = () => data.find(item => item.value === value)?.value
 	return (
 		<div
-			className={cn(styles.main, {
-				'w-max': isColorSelect
-			})}
+			className={styles.main}
 			ref={ref}
 		>
 			<button
@@ -43,7 +40,6 @@ export function SingleSelect({
 				{getValue() ? (
 					<Chip
 						variant={value}
-						className='capitalize'
 						style={isColorSelect ? { backgroundColor: value } : {}}
 					>
 						{getValue()}
@@ -60,13 +56,16 @@ export function SingleSelect({
 						onChange('')
 					}}
 				>
-					<X size={14} />
+					<X
+						size={14}
+						color='black'
+					/>
 				</button>
 			)}
 			{isShow && (
 				<div
 					className={styles.modal}
-					style={{ top: 'calc(100% + .5rem)' }}
+					style={{ top: 'calc(100% + 8px)' }}
 				>
 					{data.map(item => (
 						<button
@@ -76,7 +75,7 @@ export function SingleSelect({
 								onChange(item.value)
 								setIsShow(false)
 							}}
-							className='block mb-4 last:mb-0 capitalize rounded-lg'
+							className={styles.button}
 							style={isColorSelect ? { backgroundColor: item.value } : {}}
 						>
 							<Chip variant={item.value}>{item.label}</Chip>

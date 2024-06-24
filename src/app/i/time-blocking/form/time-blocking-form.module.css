@@ -1,0 +1,22 @@
+.form {
+	width: 60%;
+	background-color: white;
+	padding: 40px;
+	border-radius: 5cqh;
+}
+
+.input {
+	background-color: white;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.color {
+	display: inline-block;
+	color: black;
+	margin-bottom: 6px;
+}
+
+.submit {
+	margin-top: 30px;
+}

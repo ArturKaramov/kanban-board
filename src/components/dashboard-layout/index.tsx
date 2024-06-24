@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react'
 
+import styles from './dashboard-layout.module.css'
 import { Header } from './header'
 import { Sidebar } from './sidebar'
 
@@ -7,10 +8,10 @@ export default function DashboardLayout({
 	children
 }: PropsWithChildren<unknown>) {
 	return (
-		<div className='grid min-h-screen 2xl:grid-cols-[1.1fr_6fr] grid-cols-[1.2fr_6fr]'>
+		<div className={styles.container}>
 			<Sidebar />
 
-			<main className='p-big-layout overflow-x-hidden max-h-screen relative'>
+			<main className={styles.main}>
 				<Header />
 				{children}
 			</main>

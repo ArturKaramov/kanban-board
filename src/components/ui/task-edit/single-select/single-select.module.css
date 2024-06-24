@@ -2,6 +2,7 @@
 	display: flex;
 	position: relative;
 	width: max-content;
+	margin-bottom: 10px;
 }
 
 .close {
@@ -17,7 +18,8 @@
 }
 
 .modal {
-	min-width: 100px;
+	min-width: 120px;
+	background-color: rgb(255, 255, 255);
 	position: absolute;
 	left: 0;
 	z-index: 10;
@@ -27,4 +29,14 @@
 	box-shadow:
 		0 1px 3px 0 rgba(0, 0, 0, 0.1),
 		0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.button {
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 5px;
+	display: block;
+	border-radius: 8px;
+	padding: 5px;
+	text-transform: capitalize;
 }

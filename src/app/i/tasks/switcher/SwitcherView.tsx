@@ -3,7 +3,9 @@
 import cn from 'clsx'
 import { Kanban, ListTodo } from 'lucide-react'
 
-import type { TypeView } from './TasksView'
+import type { TypeView } from '../tasks-view/TasksView'
+
+import styles from './switcher.module.css'
 
 interface ISwitcherView {
 	type: TypeView
@@ -12,20 +14,16 @@ interface ISwitcherView {
 
 export function SwitcherView({ setType, type }: ISwitcherView) {
 	return (
-		<div className='flex items-center gap-4 mb-5'>
+		<div className={styles.switcher}>
 			<button
-				className={cn('flex items-center gap-1', {
-					'opacity-40': type === 'kanban'
-				})}
+				className={cn(styles.button, type === 'list' && styles.active)}
 				onClick={() => setType('list')}
 			>
 				<ListTodo />
 				List
 			</button>
 			<button
-				className={cn('flex items-center gap-1', {
-					'opacity-40': type === 'list'
-				})}
+				className={cn(styles.button, type === 'kanban' && styles.active)}
 				onClick={() => setType('kanban')}
 			>
 				<Kanban />

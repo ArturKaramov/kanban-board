@@ -3,11 +3,12 @@ import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 
 import Loader from '@/components/ui/loader'
 
-import { TimeBlock } from './TimeBlock'
-import styles from './TimeBlocking.module.scss'
-import { calcHoursLeft } from './calc-hours-left'
-import { useTimeBlockDnd } from './hooks/useTimeBlockDnd'
-import { useTimeBlocks } from './hooks/useTimeBlocks'
+import { calcHoursLeft } from '../calc-hours-left'
+import { useTimeBlockDnd } from '../hooks/useTimeBlockDnd'
+import { useTimeBlocks } from '../hooks/useTimeBlocks'
+import { TimeBlock } from '../time-block/TimeBlock'
+
+import styles from './time-blocking-list.module.css'
 
 export function TimeBlockingList() {
 	const { items, setItems, isLoading } = useTimeBlocks()

@@ -94,7 +94,7 @@ export function KanbanCard({ item, setItems }: IKanbanCard) {
 					onClick={() =>
 						item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
 					}
-					className='opacity-50 transition-opacity hover:opacity-100'
+					className={styles.button}
 				>
 					{isDeletePending ? <Loader size={15} /> : <Trash size={15} />}
 				</button>
